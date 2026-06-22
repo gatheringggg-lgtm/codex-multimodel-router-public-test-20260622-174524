@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Multi-Model Router Installer"
+  short_description: "Guide safe Codex router installs."
+  default_prompt: "Guide me through installing the local multi-model router for my own Codex Desktop."

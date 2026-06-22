@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "product": "codex-multimodel-router",
+  "displayName": "Local Multi-Model Router for Codex Desktop",
+  "release": "v0.1.0-prototype",
+  "nodeRuntimeVersion": "v24.17.0",
+  "releaseAssetBaseUrlTemplate": "https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/{assetName}",
+  "skillPath": "skills/codex-multimodel-router-installer",
+  "checksumAsset": "SHA256SUMS.txt",
+  "assets": [
+    {
+      "platform": "win32",
+      "arch": "x64",
+      "assetName": "codex-multimodel-router-windows-x64-v24.17.0.zip",
+      "sha256": "46dbdda55d697d4a46358e9ecf15cf59d19b1d2a8f3722ea5a24cf2a967aa454",
+      "sizeBytes": 34596671,
+      "packageRootAfterExtract": "codex-multimodel-router-windows-x64"
+    },
+    {
+      "platform": "darwin",
+      "arch": "arm64",
+      "assetName": "codex-multimodel-router-macos-arm64-v24.17.0.zip",
+      "sha256": "05bd064994b923d3f9cd74905ce388185a34a47250c828457557c825ec111eb0",
+      "sizeBytes": 38970475,
+      "packageRootAfterExtract": "codex-multimodel-router-macos-arm64"
+    }
+  ],
+  "safety": {
+    "doesNotIncludeCodexDesktop": true,
+    "doesNotModifyCodexAppBinary": true,
+    "doesNotModifyConversationStorage": true,
+    "requiresExplicitFinalApply": true,
+    "rollbackFirstBeforeApply": true,
+    "finalApplyMayInterruptCurrentCodexConversation": true,
+    "secretsMustStayLocal": true
+  }
+}

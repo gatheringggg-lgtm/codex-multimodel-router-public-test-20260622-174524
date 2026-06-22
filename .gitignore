@@ -1,0 +1,8 @@
+.DS_Store
+._*
+__MACOSX/
+*.log
+outputs/
+logs/
+config/router.env
+*.zip
