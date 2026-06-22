@@ -4,7 +4,7 @@ This is the expected customer-facing flow after the skill is installed.
 
 ## 1. Download and verify
 
-The skill chooses the correct GitHub Release asset for the customer's platform and verifies SHA256 before extraction.
+The skill chooses the correct public release asset for the customer's platform, prefers the Gitee domestic mirror for large zips, falls back to GitHub if needed, and verifies SHA256 before extraction.
 
 Current assets:
 
@@ -16,6 +16,8 @@ If SHA256 verification fails, stop.
 ## 2. Local env setup
 
 The customer copies `config/router.env.example` to `config/router.env` and fills API settings locally.
+
+The install guide must be beginner-friendly here: show the exact `router.env` path, show a placeholder-only template, explain Base URL vs provider key fields, and ask the customer to save locally and reply only `已填好`.
 
 Secrets must stay local. The customer should not paste API keys into Codex chat.
 

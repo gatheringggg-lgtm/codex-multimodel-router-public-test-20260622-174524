@@ -32,7 +32,7 @@ From the package root, read only the docs needed for the current phase:
 
 From this skill, use:
 
-- `references/download-release.md` when the customer wants Codex to fetch the package from GitHub Releases.
+- `references/download-release.md` when the customer wants Codex to fetch the package from public release assets.
 - `references/install-protocol.md` for the final apply and rollback phase contract.
 
 ## Workflow decision
@@ -65,6 +65,27 @@ Confirm the package is for the customer's own Codex Desktop on macOS or Windows.
 
 Guide the customer to copy `config/router.env.example` to `config/router.env` and fill provider settings locally. Do not ask them to paste the values.
 
+If `config/router.env` already exists but doctor says third-party keys or provider settings are missing, do not stop with a vague technical message. Give a beginner-friendly action block:
+
+1. Show the exact local file path to open:
+   - Windows: `D:\CodexMultiModelRouter\config\router.env`
+   - macOS: `<package-root>/config/router.env`
+2. Tell the customer to click/open that file in a text editor such as Notepad, VS Code, TextEdit plain text mode, or another local editor.
+3. Show this safe template with placeholders only; never include real secrets:
+
+```text
+PACKY_BASE_URL=https://YOUR_PROVIDER_BASE_URL/v1
+PACKY_API_KEY_DEEPSEEK=PASTE_DEEPSEEK_GROUP_KEY_HERE
+PACKY_API_KEY_MIMO=PASTE_MIMO_GROUP_KEY_HERE
+```
+
+4. Explain the fields in plain language:
+   - `PACKY_BASE_URL`: the relay/provider Base URL, usually ending in `/v1`.
+   - `PACKY_API_KEY_DEEPSEEK`: the API key or group key that can call DeepSeek.
+   - `PACKY_API_KEY_MIMO`: the API key or group key that can call MiMO.
+5. Tell the customer to replace only the placeholder text after `=` in their local file, save the file, and then reply only `已填好`.
+6. Explicitly say: do not paste the Base URL or API keys into Codex chat. If they are unsure, they can paste a redacted shape such as `https://.../v1` or `sk-***last4`, never the full value.
+
 ### 3. Read-only checks
 
 Ask the customer to run:
@@ -72,7 +93,7 @@ Ask the customer to run:
 - macOS: `./scripts/00-doctor.sh`, then `./scripts/01-detect.sh`
 - Windows PowerShell: `.\scripts\00-doctor.ps1`, then `.\scripts\01-detect.ps1`
 
-Review only non-secret output. If doctor says a third-party route is not configured, tell the customer to fix `config/router.env` locally.
+Review only non-secret output. If doctor says a third-party route is not configured, route back to **Prepare local provider settings** and give the beginner-friendly action block. Do not ask the customer to paste secrets into chat.
 
 ### 4. Dry run
 

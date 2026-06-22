@@ -12,5 +12,5 @@ https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-2026062
 ## Start guided install after restart
 
 ```text
-请使用 codex-multimodel-router-installer skill，从 GitHub Release 下载并校验适合本机的 Codex Desktop 多模型 router 安装包，然后按 interruption-safe 协议引导我安装。
+请使用 codex-multimodel-router-installer skill，优先从 Gitee 国内镜像下载并校验适合本机的 Codex Desktop 多模型 router 安装包；如果 Gitee 不可用，再 fallback 到 GitHub，然后按 interruption-safe 协议引导我安装。
 ```
