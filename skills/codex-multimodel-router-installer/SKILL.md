@@ -75,12 +75,14 @@ If `config/router.env` already exists but doctor says third-party keys or provid
 
 ```text
 PACKY_BASE_URL=https://YOUR_PROVIDER_BASE_URL/v1
+CODEX_OFFICIAL_BASE_URL=https://YOUR_PROVIDER_BASE_URL/v1
 PACKY_API_KEY_DEEPSEEK=PASTE_DEEPSEEK_GROUP_KEY_HERE
 PACKY_API_KEY_MIMO=PASTE_MIMO_GROUP_KEY_HERE
 ```
 
 4. Explain the fields in plain language:
    - `PACKY_BASE_URL`: the relay/provider Base URL, usually ending in `/v1`.
+   - `CODEX_OFFICIAL_BASE_URL`: the GPT passthrough Base URL. If the customer already uses CC Switch / Packy / another custom provider for GPT in Codex, this should normally be the same value as `PACKY_BASE_URL`. If the customer's Codex is using the official OpenAI login/provider directly, tell them to leave this line commented or ask the administrator/support person before changing it.
    - `PACKY_API_KEY_DEEPSEEK`: the API key or group key that can call DeepSeek.
    - `PACKY_API_KEY_MIMO`: the API key or group key that can call MiMO.
 5. Tell the customer to replace only the placeholder text after `=` in their local file, save the file, and then reply only `已填好`.
