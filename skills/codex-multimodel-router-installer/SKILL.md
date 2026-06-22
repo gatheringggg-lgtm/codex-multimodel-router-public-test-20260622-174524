@@ -1,6 +1,6 @@
 ---
 name: codex-multimodel-router-installer
-description: Guide interruption-safe download, installation, validation, and rollback of the local multi-model router for a user's own Codex Desktop. Use when the user wants a skill-guided GitHub Release download, local package install, dry run, final apply, startup setup, smoke test, troubleshooting, or rollback on macOS or Windows.
+description: Guide interruption-safe download, installation, validation, and rollback of the local multi-model router for a user's own Codex Desktop. Use when the user wants a skill-guided Release download, local package install, dry run, final apply, startup setup, smoke test, troubleshooting, or rollback on macOS or Windows.
 ---
 
 # Codex Multi-Model Router Installer
@@ -38,10 +38,10 @@ From this skill, use:
 ## Workflow decision
 
 1. If the customer already has an extracted package path, start at **Local package orientation**.
-2. If the customer gives a GitHub repo or release URL, start at **GitHub Release download**.
-3. If the customer only installed this skill and does not know what to do next, ask for the GitHub repo URL or the local package path.
+2. If the customer gives a Gitee/GitHub repo or release URL, start at **Release download**.
+3. If the customer only installed this skill and does not know what to do next, ask for the Gitee/GitHub repo URL or the local package path.
 
-## GitHub Release download
+## Release download
 
 Use `references/download-release.md`.
 
