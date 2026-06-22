@@ -12,16 +12,16 @@
       "platform": "win32",
       "arch": "x64",
       "assetName": "codex-multimodel-router-windows-x64-v24.17.0.zip",
-      "sha256": "341936e12bcde26776fd867837295c9da8060a3165d265532f3e28f9353c8207",
-      "sizeBytes": 34570419,
+      "sha256": "69e3869a37132efc7745e96f29be57254dbb1b7fca9eb296bfc6f72b9f6ae0a5",
+      "sizeBytes": 34572819,
       "packageRootAfterExtract": "codex-multimodel-router-windows-x64"
     },
     {
       "platform": "darwin",
       "arch": "arm64",
       "assetName": "codex-multimodel-router-macos-arm64-v24.17.0.zip",
-      "sha256": "c79eea5c6a5a3477c8f45dbdad6ed68fa6bfa1f4bc9930966a8156827e8ca94a",
-      "sizeBytes": 38943985,
+      "sha256": "201a1c602980ebcf1f9bf80eff78b1a0ab227288b83cd951b8d355e6e70b6864",
+      "sizeBytes": 38945633,
       "packageRootAfterExtract": "codex-multimodel-router-macos-arm64"
     }
   ],
@@ -36,5 +36,5 @@
     "desktopRollbackEntryBeforeApply": true,
     "finalApplyScriptsVerifyDesktopRollbackEntry": true
   },
-  "updatedAt": "2026-06-22T13:20:00Z"
+  "updatedAt": "2026-06-22T16:14:28Z"
 }
