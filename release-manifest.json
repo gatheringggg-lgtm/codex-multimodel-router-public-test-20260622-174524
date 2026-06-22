@@ -12,16 +12,16 @@
       "platform": "win32",
       "arch": "x64",
       "assetName": "codex-multimodel-router-windows-x64-v24.17.0.zip",
-      "sha256": "8283c3e1e4e250732b0f2516e9751b212e56a33a41894200771efb31ecb52927",
-      "sizeBytes": 34567784,
+      "sha256": "fd17c360cbed02344ceccad595b13182018ec7958907b7847090d0c8315d64f2",
+      "sizeBytes": 34567801,
       "packageRootAfterExtract": "codex-multimodel-router-windows-x64"
     },
     {
       "platform": "darwin",
       "arch": "arm64",
       "assetName": "codex-multimodel-router-macos-arm64-v24.17.0.zip",
-      "sha256": "e10c616485fc26f12d6448a45598b05d69f2abf159f43c7f018c5baec00f4b08",
-      "sizeBytes": 38941588,
+      "sha256": "b403fc17e66c73d081873f2bd577b21cc617f231759404ec3c15ca067276ecc3",
+      "sizeBytes": 38941605,
       "packageRootAfterExtract": "codex-multimodel-router-macos-arm64"
     }
   ],

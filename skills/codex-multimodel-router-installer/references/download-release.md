@@ -104,7 +104,7 @@ Use a staging folder, then move the extracted package root to that exact path:
 ```powershell
 $InstallRoot = 'D:\CodexMultiModelRouter'
 $StageRoot = 'D:\codex-multimodel-router-install-stage'
-$BackupRoot = 'D:\codex-routing-lab-k6v'
+$BackupRoot = 'D:\CodexMultiModelRouterBackups'
 $Stamp = Get-Date -Format yyyyMMdd-HHmmss
 New-Item -ItemType Directory -Force -Path $BackupRoot | Out-Null
 if (Test-Path -LiteralPath $InstallRoot) {
