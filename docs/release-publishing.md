@@ -38,7 +38,7 @@ release-manifest.json
 - `SHA256SUMS.txt` matches the uploaded zip files.
 - Skill frontmatter validates.
 - Customer docs do not contain secrets, local machine names, LAN IPs, internal paths, or development gate labels.
-- Release notes state that final apply may interrupt the current Codex conversation and that `ROLLBACK-FIRST.*` is generated before apply.
+- Release notes state that final apply may interrupt the current Codex conversation, that rollback safety files and Desktop `一键回滚` are generated before apply, and that customers should use Desktop `一键回滚` first if Codex looks abnormal.
 
 ## Customer install command
 

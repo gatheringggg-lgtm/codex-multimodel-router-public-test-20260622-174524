@@ -25,6 +25,6 @@ After installation, fully quit and reopen Codex Desktop.
 - 不读取、不打印 API key；
 - 不直接修改 Codex 配置；
 - 使用包内 scripts；
-- final apply 前必须确认 ROLLBACK-FIRST.* 和 outputs/install-state.json 已生成；
-- final apply 前必须提醒我当前 Codex 对话可能中断。
+- final apply 前必须由 Codex/脚本自动确认 rollback 安全文件和桌面 `一键回滚` 已生成，不要让我自己找文件；
+- final apply 前必须提醒我当前 Codex 对话可能中断；如果异常，我应双击桌面 `一键回滚`，完全退出并重新打开 Codex Desktop，再联系管理员/支持。
 ```

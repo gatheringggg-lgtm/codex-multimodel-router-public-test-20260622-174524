@@ -111,23 +111,25 @@ Ask the customer to run:
 - macOS: `./scripts/03-emit-apply-rollback.sh`
 - Windows PowerShell: `.\scripts\03-emit-apply-rollback.ps1`
 
-Confirm these exist before final apply:
+The agent must verify these non-secret safety artifacts itself before final apply. Do not ask the customer to manually confirm file existence:
 
 - `outputs/apply.*`
 - `outputs/rollback.*`
 - `ROLLBACK-FIRST.*`
+- Desktop emergency entry named `一键回滚`
 - `outputs/install-state.json`
 
-`outputs/install-state.json` must show `phase: ready_for_final_apply` and must not contain secrets.
+`outputs/install-state.json` must show `phase: ready_for_final_apply`, `secretsStored: false`, and a `desktopRollbackPath` or equivalent desktop rollback entry. It must not contain secrets.
 
 ### 6. Final apply gate
 
-Before instructing final apply, state plainly:
+Before instructing final apply, state plainly in beginner-friendly language:
 
 - final apply may interrupt this Codex conversation;
 - the terminal must stay open;
-- `ROLLBACK-FIRST.*` must exist;
-- if Codex looks abnormal, run `ROLLBACK-FIRST.*`, then fully quit and reopen Codex Desktop;
+- the package/agent has already checked the rollback safety files and the Desktop entry named `一键回滚`;
+- if Codex looks abnormal after the change, double-click `一键回滚` on the Desktop, then fully quit and reopen Codex Desktop;
+- if rollback is needed, contact the administrator/support person who provided this package after using `一键回滚`;
 - validation should happen after a full quit/reopen in a fresh or reloaded chat.
 
 Then ask the customer to run:
@@ -160,7 +162,8 @@ If history disappears, picker is wrong, error banners appear, or raw tool-call t
 
 Rollback options:
 
-- fast config rollback after final apply: `ROLLBACK-FIRST.*`;
+- beginner emergency rollback after final apply: double-click `一键回滚` on the Desktop;
+- backup fast config rollback: `ROLLBACK-FIRST.*` in the package root;
 - full rollback/uninstall: `scripts/99-rollback-all.*`.
 
 Never advise deleting Codex history or session files.

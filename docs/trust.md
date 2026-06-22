@@ -7,7 +7,7 @@ This helper is not a modified Codex Desktop distribution.
 - Installs a local loopback router.
 - Generates a reviewable Codex config candidate.
 - Creates a timestamped config backup before final apply.
-- Creates `ROLLBACK-FIRST.*` before final apply.
+- Creates `ROLLBACK-FIRST.*` and a Desktop emergency entry named `一键回滚` before final apply.
 - Adds a user-level startup item only after explicit customer action.
 
 ## What it does not do

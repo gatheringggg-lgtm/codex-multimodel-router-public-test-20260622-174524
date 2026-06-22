@@ -35,11 +35,11 @@ The generated candidate config must not define `[model_providers.openai]`.
 
 Run `03-emit-apply-rollback`.
 
-Before final apply, these must exist:
+Before final apply, the agent/script must verify these non-secret safety artifacts. Do not ask a beginner customer to manually confirm file existence:
 
 - `outputs/apply.*`
 - `outputs/rollback.*`
-- `ROLLBACK-FIRST.*`
+- Desktop `一键回滚` and backup `ROLLBACK-FIRST.*`
 - `outputs/install-state.json`
 
 ## 5. Final apply warning
@@ -47,7 +47,7 @@ Before final apply, these must exist:
 Before `04-apply-reviewed`, the skill must warn:
 
 ```text
-Final apply may interrupt this Codex conversation. Keep the terminal open. Confirm ROLLBACK-FIRST.* exists. If Codex looks abnormal, run ROLLBACK-FIRST.* and fully quit/reopen Codex Desktop. Validate only after restart.
+Final apply may interrupt this Codex conversation. Keep the terminal open. I have checked the rollback safety files and the Desktop entry named `一键回滚`. If Codex looks abnormal, double-click `一键回滚` on the Desktop, then fully quit/reopen Codex Desktop and contact the administrator/support person who provided this package. Validate only after restart.
 ```
 
 ## 6. Restart and smoke test

@@ -12,16 +12,16 @@
       "platform": "win32",
       "arch": "x64",
       "assetName": "codex-multimodel-router-windows-x64-v24.17.0.zip",
-      "sha256": "fd17c360cbed02344ceccad595b13182018ec7958907b7847090d0c8315d64f2",
-      "sizeBytes": 34567801,
+      "sha256": "341936e12bcde26776fd867837295c9da8060a3165d265532f3e28f9353c8207",
+      "sizeBytes": 34570419,
       "packageRootAfterExtract": "codex-multimodel-router-windows-x64"
     },
     {
       "platform": "darwin",
       "arch": "arm64",
       "assetName": "codex-multimodel-router-macos-arm64-v24.17.0.zip",
-      "sha256": "b403fc17e66c73d081873f2bd577b21cc617f231759404ec3c15ca067276ecc3",
-      "sizeBytes": 38941605,
+      "sha256": "c79eea5c6a5a3477c8f45dbdad6ed68fa6bfa1f4bc9930966a8156827e8ca94a",
+      "sizeBytes": 38943985,
       "packageRootAfterExtract": "codex-multimodel-router-macos-arm64"
     }
   ],
@@ -32,6 +32,9 @@
     "requiresExplicitFinalApply": true,
     "rollbackFirstBeforeApply": true,
     "finalApplyMayInterruptCurrentCodexConversation": true,
-    "secretsMustStayLocal": true
-  }
+    "secretsMustStayLocal": true,
+    "desktopRollbackEntryBeforeApply": true,
+    "finalApplyScriptsVerifyDesktopRollbackEntry": true
+  },
+  "updatedAt": "2026-06-22T13:20:00Z"
 }
