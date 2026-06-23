@@ -9,16 +9,16 @@ description: Guide interruption-safe download, installation, validation, and rol
 
 Use this skill to guide a customer through installing the local multi-model router for their own Codex Desktop without distributing or modifying Codex Desktop itself.
 
-The skill is a coach, not the executor. It should instruct the customer to run package scripts, inspect outputs, and approve gates. The scripts perform stateful local changes and write rollback files.
+The skill is a bootstrap coach, not the final config editor. It should download/verify the package, create the Desktop entry named `配置多模型 Router`, and then hand the customer to the local Chinese configuration page. The local page performs provider setup, rollback creation, final apply, startup setup, health check, and Codex restart.
 
 ## Hard safety rules
 
 - Never ask the customer to paste API keys, bearer tokens, cookies, auth files, or session contents into chat.
 - Never print secret values from `router.env`; only discuss whether a required setting is configured.
-- Do not edit Codex config directly from the skill. Use package scripts.
+- Do not edit Codex config directly from the skill. Use the package local configuration page or package scripts.
 - Do not modify Codex app binaries, conversation storage, auth files, cookies, or session/history files.
 - Treat `scripts/04-apply-reviewed.*` as the final apply gate because it may interrupt the current Codex conversation.
-- If the customer is installing the skill from GitHub, tell them to restart Codex after skill installation before continuing router installation.
+- If the customer is installing the skill from GitHub/Gitee, tell them to restart Codex after skill installation before continuing router installation.
 
 ## Documents to use
 
@@ -92,7 +92,7 @@ Do not ask a beginner customer to manually copy `router.env.example`, inspect `i
 The local page must be preferred over manual file editing. It lets the customer:
 
 1. Fill or confirm `中转站 Base URL`.
-2. Keep `GPT / Codex 透传地址与中转站地址相同` checked for common CC Switch / Packy / relay-login scenarios.
+2. For ChatGPT official subscription login, keep the page's automatic official backend default. For common CC Switch / Packy / relay-login scenarios, keep `GPT / Codex 透传地址与中转站地址相同` checked.
 3. Fill `DeepSeek 分组 Key` and `MiMO 分组 Key`.
 4. Click `保存配置`.
 
@@ -134,7 +134,7 @@ Manual `config/router.env` editing is last resort. If required, give a short Chi
 
 ```text
 PACKY_BASE_URL=https://YOUR_PROVIDER_BASE_URL/v1
-CODEX_OFFICIAL_BASE_URL=https://YOUR_PROVIDER_BASE_URL/v1
+CODEX_OFFICIAL_BASE_URL=https://chatgpt.com/backend-api/codex
 PACKY_API_KEY_DEEPSEEK=PASTE_DEEPSEEK_GROUP_KEY_HERE
 PACKY_API_KEY_MIMO=PASTE_MIMO_GROUP_KEY_HERE
 ```
@@ -142,7 +142,7 @@ PACKY_API_KEY_MIMO=PASTE_MIMO_GROUP_KEY_HERE
 Plain-language field meanings:
 
 - `PACKY_BASE_URL`: 中转站/供应商 Base URL，通常以 `/v1` 结尾。安装器会尽量从当前 Codex 配置自动抓取。
-- `CODEX_OFFICIAL_BASE_URL`: GPT/Codex 官方模型透传 Base URL。国内 CC Switch / Packy / custom provider 场景通常和 `PACKY_BASE_URL` 一样。
+- `CODEX_OFFICIAL_BASE_URL`: GPT/Codex 官方模型透传 Base URL。ChatGPT 官方订阅登录保持默认官方后端；CC Switch / Packy / custom provider 场景通常由安装器自动改成和 `PACKY_BASE_URL` 一样。
 - `PACKY_API_KEY_DEEPSEEK`: 可调用 DeepSeek 的分组 Key。
 - `PACKY_API_KEY_MIMO`: 可调用 MiMO 的分组 Key。
 

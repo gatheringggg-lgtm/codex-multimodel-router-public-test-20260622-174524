@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "product": "codex-multimodel-router",
   "displayName": "Local Multi-Model Router for Codex Desktop",
-  "release": "v0.1.2-rc1",
+  "release": "v0.1.3-rc1",
   "nodeRuntimeVersion": "v24.17.0",
-  "releaseAssetBaseUrlTemplate": "https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.2-rc1/{assetName}",
-  "giteeReleaseAssetBaseUrlTemplate": "https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.2-rc1/{assetName}",
+  "releaseAssetBaseUrlTemplate": "https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.3-rc1/{assetName}",
+  "giteeReleaseAssetBaseUrlTemplate": "https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.3-rc1/{assetName}",
   "skillPath": "skills/codex-multimodel-router-installer",
   "checksumAsset": "SHA256SUMS.txt",
   "assets": [
@@ -13,8 +13,8 @@
       "platform": "win32",
       "arch": "x64",
       "assetName": "codex-multimodel-router-windows-x64-v24.17.0.zip",
-      "sha256": "ff082969b6ca47344e1ba32e44a7954a1f2f8411a0bb46935de6a63162c09b27",
-      "sizeBytes": 34599937,
+      "sha256": "a479ddcf5f66072fa66bffc450ee61d01a464f3a58393253a78622b8fe57bb23",
+      "sizeBytes": 34601685,
       "packageRootAfterExtract": "codex-multimodel-router-windows-x64",
       "runtimeRelativePath": "runtime/node.exe",
       "runtimeCheck": "sha256_verified_archive_plus_pe_mz_header"
@@ -23,8 +23,8 @@
       "platform": "darwin",
       "arch": "arm64",
       "assetName": "codex-multimodel-router-macos-arm64-v24.17.0.zip",
-      "sha256": "097136c80634b87c387b74662af5040eecc7d3a8a60c136afc796404319eecfe",
-      "sizeBytes": 38971858,
+      "sha256": "170b4b0dfb035e28a506c2bfa5a6581da7d3d53262de67d4196efb41e7c02106",
+      "sizeBytes": 38973429,
       "packageRootAfterExtract": "codex-multimodel-router-macos-arm64",
       "runtimeRelativePath": "runtime/node",
       "runtimeCheck": "executed_node_--version"
@@ -46,13 +46,18 @@
     "helperScriptSyntaxChecked": true,
     "desktopBootstrapEntryPreferred": true,
     "routerEnvAutoCreatedByBootstrap": true,
-    "officialBaseUrlFinalGateValidation": true,
+    "officialLoginUsesOfficialCodexBackendByDefault": true,
+    "customProviderOverridesOfficialDefaultToProviderBaseUrl": true,
     "windowsPowerShellScriptsUtf8Bom": true,
+    "windowsGeneratedStateFilesUtf8": true,
+    "windowsRollbackCmdFallbackEncodedCommand": true,
+    "giteeReleaseAssetRetryGuidance": true,
     "lockedStepperFlow": true,
     "codexRestartButtonAfterHealthCheck": true,
+    "codexRestartWaitsForProcessExitBeforeReopen": true,
     "windowsS4UBackgroundTask": true
   },
-  "updatedAt": "2026-06-23T07:42:29Z",
-  "version": "v0.1.2-rc1",
-  "fix": "v0.1.2-rc1: locked local stepper, one-click Codex restart action, and Windows S4U user-level background router startup persistence; no Codex Desktop binaries included"
+  "updatedAt": "2026-06-23T09:32:29Z",
+  "version": "v0.1.3-rc1",
+  "fix": "v0.1.3-rc1: installer restart waits for Codex process exit, official-login defaults GPT passthrough to official Codex backend, custom-provider protects GPT passthrough, Gitee download retry guidance, and Windows Chinese path encoding hardening; no Codex Desktop binaries included"
 }
