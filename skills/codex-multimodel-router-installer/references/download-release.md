@@ -14,9 +14,9 @@ Default policy:
 Ask for one of these if not already provided:
 
 - Gitee mirror repo URL, such as `https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524`;
-- Gitee release URL, such as `https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.0-prototype`;
+- Gitee release URL, such as `https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.1-rc1`;
 - GitHub fallback repo URL, such as `https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524`;
-- GitHub fallback release URL, such as `https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.0-prototype`;
+- GitHub fallback release URL, such as `https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.1-rc1`;
 - or an already downloaded/extracted package path.
 
 ## Platform selection
@@ -37,17 +37,17 @@ If the platform is not Windows x64 or macOS arm64, stop and explain that the cur
 ```bash
 mkdir -p ./codex-multimodel-router-download
 curl -L -o ./codex-multimodel-router-download/codex-multimodel-router-macos-arm64-v24.17.0.zip \
-  https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/codex-multimodel-router-macos-arm64-v24.17.0.zip
+  https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.1-rc1/codex-multimodel-router-macos-arm64-v24.17.0.zip
 curl -L -o ./codex-multimodel-router-download/SHA256SUMS.txt \
-  https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/SHA256SUMS.txt
+  https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.1-rc1/SHA256SUMS.txt
 ```
 
 ### Gitee domestic mirror, Windows PowerShell
 
 ```powershell
 New-Item -ItemType Directory -Force -Path .\codex-multimodel-router-download | Out-Null
-Invoke-WebRequest -Uri 'https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/codex-multimodel-router-windows-x64-v24.17.0.zip' -OutFile '.\codex-multimodel-router-download\codex-multimodel-router-windows-x64-v24.17.0.zip'
-Invoke-WebRequest -Uri 'https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/SHA256SUMS.txt' -OutFile '.\codex-multimodel-router-download\SHA256SUMS.txt'
+Invoke-WebRequest -Uri 'https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.1-rc1/codex-multimodel-router-windows-x64-v24.17.0.zip' -OutFile '.\codex-multimodel-router-download\codex-multimodel-router-windows-x64-v24.17.0.zip'
+Invoke-WebRequest -Uri 'https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.1-rc1/SHA256SUMS.txt' -OutFile '.\codex-multimodel-router-download\SHA256SUMS.txt'
 ```
 
 ### GitHub fallback, macOS
@@ -55,17 +55,17 @@ Invoke-WebRequest -Uri 'https://gitee.com/leo391913/codex-multimodel-router-publ
 ```bash
 mkdir -p ./codex-multimodel-router-download
 curl -L -o ./codex-multimodel-router-download/codex-multimodel-router-macos-arm64-v24.17.0.zip \
-  https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/codex-multimodel-router-macos-arm64-v24.17.0.zip
+  https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.1-rc1/codex-multimodel-router-macos-arm64-v24.17.0.zip
 curl -L -o ./codex-multimodel-router-download/SHA256SUMS.txt \
-  https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/SHA256SUMS.txt
+  https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.1-rc1/SHA256SUMS.txt
 ```
 
 ### GitHub fallback, Windows PowerShell
 
 ```powershell
 New-Item -ItemType Directory -Force -Path .\codex-multimodel-router-download | Out-Null
-Invoke-WebRequest -Uri 'https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/codex-multimodel-router-windows-x64-v24.17.0.zip' -OutFile '.\codex-multimodel-router-download\codex-multimodel-router-windows-x64-v24.17.0.zip'
-Invoke-WebRequest -Uri 'https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/SHA256SUMS.txt' -OutFile '.\codex-multimodel-router-download\SHA256SUMS.txt'
+Invoke-WebRequest -Uri 'https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.1-rc1/codex-multimodel-router-windows-x64-v24.17.0.zip' -OutFile '.\codex-multimodel-router-download\codex-multimodel-router-windows-x64-v24.17.0.zip'
+Invoke-WebRequest -Uri 'https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.1-rc1/SHA256SUMS.txt' -OutFile '.\codex-multimodel-router-download\SHA256SUMS.txt'
 ```
 
 ## SHA256 verification

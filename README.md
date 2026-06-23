@@ -25,16 +25,17 @@ Ask Codex:
 
 ```text
 请使用 codex-multimodel-router-installer skill，
-优先从 Gitee 国内镜像 https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.0-prototype 下载适合本机平台的安装包；如果 Gitee 不可用，再 fallback 到 GitHub https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.0-prototype，
+优先从 Gitee 国内镜像 https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.1-rc1 下载适合本机平台的安装包；如果 Gitee 不可用，再 fallback 到 GitHub https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.1-rc1，
 校验 SHA256，
 然后按 interruption-safe 协议引导我安装 Codex Desktop 多模型 router。
 
 要求：
 - 不读取、不打印 API key；
 - 不直接修改 Codex 配置；
-- 使用包内 scripts；
-- 配置 Base URL 和 API Key 时优先打开包内 `00-configure` 本地中文页面，不要让我手工复制 `router.env.example`；
-- final apply 前必须由 Codex/脚本自动确认 rollback 安全文件和桌面 `一键回滚` 已生成，不要让我自己找文件；
+- 先运行包内 `00-create-desktop-entry`，在桌面创建 `配置多模型 Router`；
+- 让我通过桌面 `配置多模型 Router` 本地中文页面填写 Base URL 和 API Key、生成方案、创建一键回滚、应用配置、安装和启动 Router；
+- 不要让我手工复制 `router.env.example`，除非本地页面打不开；
+- final apply 前必须由本地页面/脚本自动确认 rollback 安全文件和桌面 `一键回滚` 已生成，不要让我自己找文件；
 - final apply 前必须提醒我当前 Codex 对话可能中断；如果异常，我应双击桌面 `一键回滚`，完全退出并重新打开 Codex Desktop，再联系管理员/支持。
 ```
 
@@ -44,7 +45,7 @@ Codex normally needs a restart after installing a new skill. The router's final 
 
 ## Release assets
 
-Release `v0.1.0-prototype` should include:
+Release `v0.1.1-rc1` should include:
 
 ```text
 codex-multimodel-router-windows-x64-v24.17.0.zip
@@ -59,6 +60,8 @@ See `release-manifest.json` and `docs/release-publishing.md`.
 
 - Windows x64
 - macOS Apple Silicon
+
+Windows prototype install path: the current Windows package is designed to be placed at `D:\CodexMultiModelRouter` so it avoids the system drive by default. Make sure the Windows machine has a usable `D:` drive before asking the skill to proceed. If the customer does not have a `D:` drive, stop and use a later dynamic-path build instead of improvising paths manually.
 
 ## Safety model
 

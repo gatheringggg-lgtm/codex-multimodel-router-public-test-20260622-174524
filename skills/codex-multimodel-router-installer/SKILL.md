@@ -59,118 +59,101 @@ Do not download or run anything from an unverified archive. Do not ask the custo
 
 ### 1. Orient
 
-Confirm the package is for the customer's own Codex Desktop on macOS or Windows. Explain that this helper is not a modified Codex distribution and that final apply may require fully quitting and reopening Codex Desktop.
+Confirm the package is for the customer's own Codex Desktop on macOS or Windows. Explain briefly:
 
-### 2. Prepare local provider settings
+- this is not a modified Codex distribution;
+- the skill/Agent only bootstraps the installer;
+- the local installer page will own provider setup, rollback creation, final apply, startup install, health check, and logs;
+- final apply may interrupt the current Codex conversation, so rollback must exist on the Desktop before apply.
 
-Do not tell the customer to copy `config/router.env.example` by hand. New packages already include `config/router.env`, and package scripts create it automatically if it is missing. First run detect/dry-run so the installer can auto-fill non-secret Base URL fields from the current Codex config. Then prefer the local configuration page instead of manual text editing:
+### 2. Bootstrap the local installer page
 
-- macOS: `./scripts/00-configure.sh`
-- Windows PowerShell: `.\scripts\00-configure.ps1`
+Default route: create a Desktop entry named `配置多模型 Router`, then stop and tell the customer to open it.
 
-This opens a local browser page in Chinese for Base URL and API Key entry. Tell the customer:
+Run from the extracted package root:
+
+- macOS: `./scripts/00-create-desktop-entry.sh`
+- Windows PowerShell: `.\scripts\00-create-desktop-entry.ps1`
+
+After it succeeds, tell the customer in beginner-friendly Chinese:
+
+```text
+桌面上已经创建了“配置多模型 Router”。
+请双击它打开本机配置页面。
+在页面里按顺序点击：保存配置 → 生成安装方案 → 创建一键回滚 → 应用到 Codex → 安装后台 Router → 启动 Router → 健康检查。
+API Key 只在本机页面填写，不要发到聊天里。
+如果应用后 Codex 异常，先双击桌面“一键回滚”，然后完全退出并重新打开 Codex Desktop，再联系管理员/支持。
+```
+
+Do not ask a beginner customer to manually copy `router.env.example`, inspect `install-state.json`, or confirm rollback files. The local page/scripts should perform those checks.
+
+### 3. Provider setup inside the local page
+
+The local page must be preferred over manual file editing. It lets the customer:
 
 1. Fill or confirm `中转站 Base URL`.
 2. Keep `GPT / Codex 透传地址与中转站地址相同` checked for common CC Switch / Packy / relay-login scenarios.
 3. Fill `DeepSeek 分组 Key` and `MiMO 分组 Key`.
-4. Click `保存到本机`.
-5. Return to the terminal and press `Ctrl+C` to close the local configuration page server.
-6. Reply only `已保存` or `已填好`.
+4. Click `保存配置`.
 
 The page must not display already-saved API key values. Blank key inputs preserve existing keys.
 
-Only use manual `config/router.env` editing as a fallback if the browser page cannot open. Do not ask customers to paste values into chat.
+### 4. Local page install sequence
 
-If `config/router.env` is missing, run `scripts/00-doctor.*` or `scripts/02-dry-run.*`; the package should create it automatically from `config/router.env.example`. If doctor says third-party keys or provider settings are missing, do not stop with a vague technical message. Give a Chinese beginner-friendly action block:
+The customer should use the page buttons, not chat-driven final scripts, unless troubleshooting requires fallback:
 
-1. Show the exact local file path to open:
+1. `保存配置`
+2. `生成安装方案`
+3. `创建一键回滚`
+4. `应用到 Codex`
+5. `安装后台 Router`
+6. `启动 Router`
+7. `健康检查`
+8. `查看日志` only if health fails
+
+Before `应用到 Codex`, the page/package must have already created Desktop `一键回滚`. State and logs must not contain secrets.
+
+### 5. CLI fallback only
+
+Use CLI fallback only if the Desktop entry or browser page cannot open.
+
+Fallback local page command:
+
+- macOS: `./scripts/00-configure.sh`
+- Windows PowerShell: `.\scripts\00-configure.ps1`
+
+Manual `config/router.env` editing is last resort. If required, give a short Chinese action block:
+
+1. Open the exact local file path:
    - Windows: `D:\CodexMultiModelRouter\config\router.env`
    - macOS: `<package-root>/config/router.env`
-2. Tell the customer to click/open that file in a text editor such as Notepad, VS Code, TextEdit plain text mode, or another local editor.
-3. Show this safe template with placeholders only; never include real secrets:
+2. Use a local editor such as Notepad, VS Code, or TextEdit plain text mode.
+3. Replace only placeholder text after `=`. Do not paste values into chat.
+4. Placeholder-only template:
 
 ```text
-# 中转站 Base URL，通常以 /v1 结尾。安装脚本能识别时会自动填好。
 PACKY_BASE_URL=https://YOUR_PROVIDER_BASE_URL/v1
-
-# GPT / Codex 官方模型透传 Base URL。CC Switch / Packy 场景通常和 PACKY_BASE_URL 一样。
-# 安装脚本能识别时会自动填好；没有自动填时才需要人工检查。
 CODEX_OFFICIAL_BASE_URL=https://YOUR_PROVIDER_BASE_URL/v1
-
-# 下面两个才是普通用户最常需要填写的 Key。
 PACKY_API_KEY_DEEPSEEK=PASTE_DEEPSEEK_GROUP_KEY_HERE
 PACKY_API_KEY_MIMO=PASTE_MIMO_GROUP_KEY_HERE
 ```
 
-4. Explain the fields in plain language:
-   - `PACKY_BASE_URL`: 中转站/供应商 Base URL，通常以 `/v1` 结尾。安装脚本会先尝试从当前 Codex 配置自动抓取。
-   - `CODEX_OFFICIAL_BASE_URL`: GPT/Codex 官方模型透传 Base URL。国内 CC Switch / Packy / 其他 custom provider 场景下通常应和 `PACKY_BASE_URL` 完全一样。安装脚本会优先自动抓取；如果没有自动填，才让用户人工检查。官方 OpenAI 登录/provider 直连场景不要让小白自行乱填，转管理员/支持处理。
-   - `PACKY_API_KEY_DEEPSEEK`: the API key or group key that can call DeepSeek.
-   - `PACKY_API_KEY_MIMO`: the API key or group key that can call MiMO.
-5. Tell the customer to replace only the placeholder text after `=` in their local file, save the file, and then reply only `已填好`. If the two Base URL lines are already real URLs, tell them not to touch those lines and only fill the API key placeholders.
-6. Explicitly say: do not paste the Base URL or API keys into Codex chat. If they are unsure, they can paste a redacted shape such as `https://.../v1` or `sk-***last4`, never the full value.
+Plain-language field meanings:
 
-### 3. Read-only checks
+- `PACKY_BASE_URL`: 中转站/供应商 Base URL，通常以 `/v1` 结尾。安装器会尽量从当前 Codex 配置自动抓取。
+- `CODEX_OFFICIAL_BASE_URL`: GPT/Codex 官方模型透传 Base URL。国内 CC Switch / Packy / custom provider 场景通常和 `PACKY_BASE_URL` 一样。
+- `PACKY_API_KEY_DEEPSEEK`: 可调用 DeepSeek 的分组 Key。
+- `PACKY_API_KEY_MIMO`: 可调用 MiMO 的分组 Key。
 
-Ask the customer to run:
+### 6. Final apply wording if using CLI fallback
 
-- macOS: `./scripts/00-doctor.sh`, then `./scripts/01-detect.sh`
-- Windows PowerShell: `.\scripts\00-doctor.ps1`, then `.\scripts\01-detect.ps1`
+If fallback scripts force a chat-guided final apply, say plainly:
 
-Review only non-secret output. If doctor says a third-party route is not configured, route back to **Prepare local provider settings** and give the beginner-friendly action block. Do not ask the customer to paste secrets into chat.
+```text
+Final apply may interrupt this Codex conversation. Keep the terminal open. I have checked the rollback safety files and the Desktop entry named 一键回滚. If Codex looks abnormal, double-click 一键回滚 on the Desktop, then fully quit/reopen Codex Desktop and contact the administrator/support person who provided this package. Validate only after restart.
+```
 
-### 4. Dry run
-
-Ask the customer to run:
-
-- macOS: `./scripts/02-dry-run.sh`
-- Windows PowerShell: `.\scripts\02-dry-run.ps1`
-
-Review `outputs/dry-run.json` and `outputs/candidate.config.toml` for expected provider mode. The candidate must not define `[model_providers.openai]`.
-
-### 5. Generate rollback before apply
-
-Ask the customer to run:
-
-- macOS: `./scripts/03-emit-apply-rollback.sh`
-- Windows PowerShell: `.\scripts\03-emit-apply-rollback.ps1`
-
-The agent must verify these non-secret safety artifacts itself before final apply. Do not ask the customer to manually confirm file existence:
-
-- `outputs/apply.*`
-- `outputs/rollback.*`
-- `ROLLBACK-FIRST.*`
-- Desktop emergency entry named `一键回滚`
-- `outputs/install-state.json`
-
-`outputs/install-state.json` must show `phase: ready_for_final_apply`, `secretsStored: false`, and a `desktopRollbackPath` or equivalent desktop rollback entry. It must not contain secrets.
-
-### 6. Final apply gate
-
-Before instructing final apply, state plainly in beginner-friendly language:
-
-- final apply may interrupt this Codex conversation;
-- the terminal must stay open;
-- the package/agent has already checked the rollback safety files and the Desktop entry named `一键回滚`;
-- if Codex looks abnormal after the change, double-click `一键回滚` on the Desktop, then fully quit and reopen Codex Desktop;
-- if rollback is needed, contact the administrator/support person who provided this package after using `一键回滚`;
-- validation should happen after a full quit/reopen in a fresh or reloaded chat.
-
-Then ask the customer to run:
-
-- macOS: `./scripts/04-apply-reviewed.sh`
-- Windows PowerShell: `.\scripts\04-apply-reviewed.ps1`
-
-### 7. Startup setup
-
-After final apply succeeds, ask the customer to run:
-
-- macOS: `./scripts/05-install-startup.sh`
-- Windows PowerShell: `.\scripts\05-install-startup.ps1`
-
-Then fully quit and reopen Codex Desktop.
-
-### 8. Smoke test
+### 7. Smoke test
 
 Use `docs/post-install-smoke-test.md`. Required checks:
 
@@ -180,9 +163,9 @@ Use `docs/post-install-smoke-test.md`. Required checks:
 - each third-party model completes a tiny no-file-change tool task;
 - transcript does not show raw `<function_calls>`, `<tool_call>`, or XML-like tool markup.
 
-### 9. Troubleshooting and rollback
+### 8. Troubleshooting and rollback
 
-If history disappears, picker is wrong, error banners appear, or raw tool-call text appears, stop expansion. Use `docs/troubleshooting.md` and prefer rollback before more experiments.
+If history disappears, picker is wrong, error banners appear, GPT route returns Bad Gateway, or raw tool-call text appears, stop expansion.
 
 Rollback options:
 

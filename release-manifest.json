@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "product": "codex-multimodel-router",
   "displayName": "Local Multi-Model Router for Codex Desktop",
-  "release": "v0.1.0-prototype",
+  "release": "v0.1.1-rc1",
   "nodeRuntimeVersion": "v24.17.0",
-  "releaseAssetBaseUrlTemplate": "https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/{assetName}",
-  "giteeReleaseAssetBaseUrlTemplate": "https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/{assetName}",
+  "releaseAssetBaseUrlTemplate": "https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.1-rc1/{assetName}",
+  "giteeReleaseAssetBaseUrlTemplate": "https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.1-rc1/{assetName}",
   "skillPath": "skills/codex-multimodel-router-installer",
   "checksumAsset": "SHA256SUMS.txt",
   "assets": [
@@ -13,17 +13,21 @@
       "platform": "win32",
       "arch": "x64",
       "assetName": "codex-multimodel-router-windows-x64-v24.17.0.zip",
-      "sha256": "41aa3807649c4e5cff8f67841ef67bc789baafe0fdeaa1b8fe545c58a423d50a",
-      "sizeBytes": 34589024,
-      "packageRootAfterExtract": "codex-multimodel-router-windows-x64"
+      "sha256": "a2f60a58a89bf5a1abc1cf432fe28822242866d5558109c7d8a8dcf849a11f34",
+      "sizeBytes": 34596828,
+      "packageRootAfterExtract": "codex-multimodel-router-windows-x64",
+      "runtimeRelativePath": "runtime/node.exe",
+      "runtimeCheck": "sha256_verified_archive_plus_pe_mz_header"
     },
     {
       "platform": "darwin",
       "arch": "arm64",
       "assetName": "codex-multimodel-router-macos-arm64-v24.17.0.zip",
-      "sha256": "c752fc8ee8361f0a2a9953c9a8914aa2d0d743406a7595ea13c110d98c3249b0",
-      "sizeBytes": 38962143,
-      "packageRootAfterExtract": "codex-multimodel-router-macos-arm64"
+      "sha256": "0e7e4b295302c201f0585daa1c7ad5cd698109232120cfe9063e58292162d32c",
+      "sizeBytes": 38969123,
+      "packageRootAfterExtract": "codex-multimodel-router-macos-arm64",
+      "runtimeRelativePath": "runtime/node",
+      "runtimeCheck": "executed_node_--version"
     }
   ],
   "safety": {
@@ -39,9 +43,13 @@
     "localConfigPageForProviderSettings": true,
     "setupTokenHiddenWhenBrowserAutoOpens": true,
     "powershellInlineEvalAvoided": true,
-    "helperScriptSyntaxChecked": true
+    "helperScriptSyntaxChecked": true,
+    "desktopBootstrapEntryPreferred": true,
+    "routerEnvAutoCreatedByBootstrap": true,
+    "officialBaseUrlFinalGateValidation": true,
+    "windowsPowerShellScriptsUtf8Bom": true
   },
-  "updatedAt": "2026-06-23T02:22:31.883Z",
-  "version": "v0.1.0-prototype",
-  "fix": "packages helper .mjs scripts with literal-safe escaping and syntax checks; preserves local Chinese config page and rollback gates"
+  "updatedAt": "2026-06-23T05:58:40Z",
+  "version": "v0.1.1-rc1",
+  "fix": "RC1: Windows PowerShell scripts are UTF-8 with BOM; desktop bootstrap plus Chinese local configuration page; router.env auto-created; GPT passthrough final gate retained; no Codex Desktop binaries included"
 }
