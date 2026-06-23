@@ -13,16 +13,16 @@
       "platform": "win32",
       "arch": "x64",
       "assetName": "codex-multimodel-router-windows-x64-v24.17.0.zip",
-      "sha256": "e987099e8949ba20a70310b44588c93c471569f2b4fc28d68cfd35fe49abfb58",
-      "sizeBytes": 34589014,
+      "sha256": "41aa3807649c4e5cff8f67841ef67bc789baafe0fdeaa1b8fe545c58a423d50a",
+      "sizeBytes": 34589024,
       "packageRootAfterExtract": "codex-multimodel-router-windows-x64"
     },
     {
       "platform": "darwin",
       "arch": "arm64",
       "assetName": "codex-multimodel-router-macos-arm64-v24.17.0.zip",
-      "sha256": "2fa01e36d855e0ca84323d223a5f824a99704cd98aeaaa5524558b7bccea86fa",
-      "sizeBytes": 38962133,
+      "sha256": "c752fc8ee8361f0a2a9953c9a8914aa2d0d743406a7595ea13c110d98c3249b0",
+      "sizeBytes": 38962143,
       "packageRootAfterExtract": "codex-multimodel-router-macos-arm64"
     }
   ],
@@ -38,9 +38,10 @@
     "finalApplyScriptsVerifyDesktopRollbackEntry": true,
     "localConfigPageForProviderSettings": true,
     "setupTokenHiddenWhenBrowserAutoOpens": true,
-    "powershellInlineEvalAvoided": true
+    "powershellInlineEvalAvoided": true,
+    "helperScriptSyntaxChecked": true
   },
-  "updatedAt": "2026-06-23T02:20:00Z",
+  "updatedAt": "2026-06-23T02:22:31.883Z",
   "version": "v0.1.0-prototype",
-  "fix": "replaces PowerShell node -e inline helpers with packaged .mjs helpers, preserving local Chinese config page and rollback gates"
+  "fix": "packages helper .mjs scripts with literal-safe escaping and syntax checks; preserves local Chinese config page and rollback gates"
 }
