@@ -80,7 +80,7 @@ After it succeeds, tell the customer in beginner-friendly Chinese:
 ```text
 桌面上已经创建了“配置多模型 Router”。
 请双击它打开本机配置页面。
-在页面里按顺序点击：保存配置 → 生成安装方案 → 创建一键回滚 → 应用到 Codex → 安装后台 Router → 启动 Router → 健康检查。
+在页面里按顺序点击：保存配置 → 生成安装方案 → 创建一键回滚 → 应用到 Codex → 安装后台 Router → 启动 Router → 健康检查 → 完全重启 Codex。
 API Key 只在本机页面填写，不要发到聊天里。
 如果应用后 Codex 异常，先双击桌面“一键回滚”，然后完全退出并重新打开 Codex Desktop，再联系管理员/支持。
 ```
@@ -100,7 +100,7 @@ The page must not display already-saved API key values. Blank key inputs preserv
 
 ### 4. Local page install sequence
 
-The customer should use the page buttons, not chat-driven final scripts, unless troubleshooting requires fallback:
+The customer should use the page buttons, not chat-driven final scripts, unless troubleshooting requires fallback. Later steps are locked until earlier steps succeed:
 
 1. `保存配置`
 2. `生成安装方案`
@@ -109,7 +109,8 @@ The customer should use the page buttons, not chat-driven final scripts, unless 
 5. `安装后台 Router`
 6. `启动 Router`
 7. `健康检查`
-8. `查看日志` only if health fails
+8. `完全重启 Codex`
+9. `查看日志` only if health fails
 
 Before `应用到 Codex`, the page/package must have already created Desktop `一键回滚`. State and logs must not contain secrets.
 

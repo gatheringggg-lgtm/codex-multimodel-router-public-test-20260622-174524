@@ -17,7 +17,7 @@ After installation, fully quit and reopen Codex Desktop.
 
 ```text
 请使用 codex-multimodel-router-installer skill，
-优先从 Gitee 国内镜像 https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.1-rc1 下载适合本机平台的安装包；如果 Gitee 不可用，再 fallback 到 GitHub https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.1-rc1，
+优先从 Gitee 国内镜像 https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.2-rc1 下载适合本机平台的安装包；如果 Gitee 不可用，再 fallback 到 GitHub https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/tag/v0.1.2-rc1，
 校验 SHA256，
 然后按 interruption-safe 协议引导我安装 Codex Desktop 多模型 router。
 

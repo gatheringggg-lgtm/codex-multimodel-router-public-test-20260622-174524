@@ -28,7 +28,7 @@ After this, the Desktop should have `配置多模型 Router`. The customer doubl
 
 ## 3. Configure, plan, rollback, apply, startup
 
-Use the page buttons in order:
+Use the page buttons in order. Later steps are locked until earlier steps succeed:
 
 1. `保存配置`
 2. `生成安装方案`
@@ -37,6 +37,7 @@ Use the page buttons in order:
 5. `安装后台 Router`
 6. `启动 Router`
 7. `健康检查`
+8. `完全重启 Codex`
 
 The page lets the customer confirm Base URL fields and fill API Key fields locally. It must not print saved API Key values back to chat. The generated candidate config must not define `[model_providers.openai]`.
 
@@ -63,7 +64,7 @@ Final apply may interrupt this Codex conversation. Keep the terminal open. I hav
 
 ## 6. Restart and smoke test
 
-After final apply and startup setup, fully quit and reopen Codex Desktop.
+After final apply and startup setup, use the page button `完全重启 Codex` when available, or fully quit and reopen Codex Desktop manually.
 
 Smoke test:
 
