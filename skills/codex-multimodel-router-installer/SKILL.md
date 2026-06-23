@@ -63,9 +63,25 @@ Confirm the package is for the customer's own Codex Desktop on macOS or Windows.
 
 ### 2. Prepare local provider settings
 
-Guide the customer to copy `config/router.env.example` to `config/router.env` and fill provider settings locally. Do not ask them to paste the values.
+Do not tell the customer to copy `config/router.env.example` by hand. New packages already include `config/router.env`, and package scripts create it automatically if it is missing. First run detect/dry-run so the installer can auto-fill non-secret Base URL fields from the current Codex config. Then prefer the local configuration page instead of manual text editing:
 
-If `config/router.env` already exists but doctor says third-party keys or provider settings are missing, do not stop with a vague technical message. Give a beginner-friendly action block:
+- macOS: `./scripts/00-configure.sh`
+- Windows PowerShell: `.\scripts\00-configure.ps1`
+
+This opens a local browser page in Chinese for Base URL and API Key entry. Tell the customer:
+
+1. Fill or confirm `中转站 Base URL`.
+2. Keep `GPT / Codex 透传地址与中转站地址相同` checked for common CC Switch / Packy / relay-login scenarios.
+3. Fill `DeepSeek 分组 Key` and `MiMO 分组 Key`.
+4. Click `保存到本机`.
+5. Return to the terminal and press `Ctrl+C` to close the local configuration page server.
+6. Reply only `已保存` or `已填好`.
+
+The page must not display already-saved API key values. Blank key inputs preserve existing keys.
+
+Only use manual `config/router.env` editing as a fallback if the browser page cannot open. Do not ask customers to paste values into chat.
+
+If `config/router.env` is missing, run `scripts/00-doctor.*` or `scripts/02-dry-run.*`; the package should create it automatically from `config/router.env.example`. If doctor says third-party keys or provider settings are missing, do not stop with a vague technical message. Give a Chinese beginner-friendly action block:
 
 1. Show the exact local file path to open:
    - Windows: `D:\CodexMultiModelRouter\config\router.env`
@@ -74,18 +90,24 @@ If `config/router.env` already exists but doctor says third-party keys or provid
 3. Show this safe template with placeholders only; never include real secrets:
 
 ```text
+# 中转站 Base URL，通常以 /v1 结尾。安装脚本能识别时会自动填好。
 PACKY_BASE_URL=https://YOUR_PROVIDER_BASE_URL/v1
+
+# GPT / Codex 官方模型透传 Base URL。CC Switch / Packy 场景通常和 PACKY_BASE_URL 一样。
+# 安装脚本能识别时会自动填好；没有自动填时才需要人工检查。
 CODEX_OFFICIAL_BASE_URL=https://YOUR_PROVIDER_BASE_URL/v1
+
+# 下面两个才是普通用户最常需要填写的 Key。
 PACKY_API_KEY_DEEPSEEK=PASTE_DEEPSEEK_GROUP_KEY_HERE
 PACKY_API_KEY_MIMO=PASTE_MIMO_GROUP_KEY_HERE
 ```
 
 4. Explain the fields in plain language:
-   - `PACKY_BASE_URL`: the relay/provider Base URL, usually ending in `/v1`.
-   - `CODEX_OFFICIAL_BASE_URL`: the GPT passthrough Base URL. If the customer already uses CC Switch / Packy / another custom provider for GPT in Codex, this should normally be the same value as `PACKY_BASE_URL`. If the customer's Codex is using the official OpenAI login/provider directly, tell them to leave this line commented or ask the administrator/support person before changing it.
+   - `PACKY_BASE_URL`: 中转站/供应商 Base URL，通常以 `/v1` 结尾。安装脚本会先尝试从当前 Codex 配置自动抓取。
+   - `CODEX_OFFICIAL_BASE_URL`: GPT/Codex 官方模型透传 Base URL。国内 CC Switch / Packy / 其他 custom provider 场景下通常应和 `PACKY_BASE_URL` 完全一样。安装脚本会优先自动抓取；如果没有自动填，才让用户人工检查。官方 OpenAI 登录/provider 直连场景不要让小白自行乱填，转管理员/支持处理。
    - `PACKY_API_KEY_DEEPSEEK`: the API key or group key that can call DeepSeek.
    - `PACKY_API_KEY_MIMO`: the API key or group key that can call MiMO.
-5. Tell the customer to replace only the placeholder text after `=` in their local file, save the file, and then reply only `已填好`.
+5. Tell the customer to replace only the placeholder text after `=` in their local file, save the file, and then reply only `已填好`. If the two Base URL lines are already real URLs, tell them not to touch those lines and only fill the API key placeholders.
 6. Explicitly say: do not paste the Base URL or API keys into Codex chat. If they are unsure, they can paste a redacted shape such as `https://.../v1` or `sk-***last4`, never the full value.
 
 ### 3. Read-only checks

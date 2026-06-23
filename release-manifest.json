@@ -5,6 +5,7 @@
   "release": "v0.1.0-prototype",
   "nodeRuntimeVersion": "v24.17.0",
   "releaseAssetBaseUrlTemplate": "https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/{assetName}",
+  "giteeReleaseAssetBaseUrlTemplate": "https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.0-prototype/{assetName}",
   "skillPath": "skills/codex-multimodel-router-installer",
   "checksumAsset": "SHA256SUMS.txt",
   "assets": [
@@ -12,16 +13,16 @@
       "platform": "win32",
       "arch": "x64",
       "assetName": "codex-multimodel-router-windows-x64-v24.17.0.zip",
-      "sha256": "0e243c708215fb360fe8c58b0a3fbd623df120c666a87cdd3cacb6b9ab08206c",
-      "sizeBytes": 34574664,
+      "sha256": "6a97e1bbd907cfcf3adc526065c01bf8168f2806ea5e5deb9052a26fed524c6d",
+      "sizeBytes": 34587632,
       "packageRootAfterExtract": "codex-multimodel-router-windows-x64"
     },
     {
       "platform": "darwin",
       "arch": "arm64",
       "assetName": "codex-multimodel-router-macos-arm64-v24.17.0.zip",
-      "sha256": "5b798150fd1382f9e3f1dee684b6a3008d28def134af3c3b6a9b741f9060c6eb",
-      "sizeBytes": 38947378,
+      "sha256": "b77d108acad18a7fdc6fbc6f0180adf26761ffc951beae302214966fdab8852e",
+      "sizeBytes": 38960633,
       "packageRootAfterExtract": "codex-multimodel-router-macos-arm64"
     }
   ],
@@ -34,7 +35,11 @@
     "finalApplyMayInterruptCurrentCodexConversation": true,
     "secretsMustStayLocal": true,
     "desktopRollbackEntryBeforeApply": true,
-    "finalApplyScriptsVerifyDesktopRollbackEntry": true
+    "finalApplyScriptsVerifyDesktopRollbackEntry": true,
+    "localConfigPageForProviderSettings": true,
+    "setupTokenHiddenWhenBrowserAutoOpens": true
   },
-  "updatedAt": "2026-06-22T18:26:41Z"
+  "updatedAt": "2026-06-23T01:10:30Z",
+  "version": "v0.1.0-prototype",
+  "fix": "adds local Chinese Base URL/API Key configuration page, hides setup token when browser auto-opens, auto-created router.env, custom-provider GPT passthrough validation, and desktop rollback gate"
 }

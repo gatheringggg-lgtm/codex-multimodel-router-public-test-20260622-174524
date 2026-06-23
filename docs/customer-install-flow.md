@@ -13,21 +13,29 @@ Current assets:
 
 If SHA256 verification fails, stop.
 
-## 2. Local env setup
+## 2. Local provider setup
 
-The customer copies `config/router.env.example` to `config/router.env` and fills API settings locally.
+The package already includes or auto-creates `config/router.env`. The customer should not copy `config/router.env.example` by hand.
 
-The install guide must be beginner-friendly here: show the exact `router.env` path, show a placeholder-only template, explain Base URL vs provider key fields, and ask the customer to save locally and reply only `已填好`.
+After detect/dry-run, use the local Chinese configuration page:
 
-Secrets must stay local. The customer should not paste API keys into Codex chat.
+- Windows PowerShell: `.\scripts\00-configure.ps1`
+- macOS: `./scripts/00-configure.sh`
 
-## 3. Read-only checks
+The page lets the customer confirm Base URL fields and fill API Key fields locally. It must not print saved API Key values back to chat. After saving, the customer returns to the terminal, presses `Ctrl+C`, and replies only `已保存` or `已填好`.
 
-Run package scripts:
+Manual `config/router.env` editing is fallback only if the browser page cannot open. In that fallback, show the exact `router.env` path, show a placeholder-only template, explain Base URL vs provider key fields, and ask the customer to save locally and reply only `已填好`.
 
-- `00-doctor`
+Secrets must stay local. The customer should not paste API keys or full Base URLs into Codex chat.
+
+## 3. Detect, configure, and check
+
+Run package scripts in this order:
+
 - `01-detect`
 - `02-dry-run`
+- `00-configure`
+- `00-doctor`
 
 The generated candidate config must not define `[model_providers.openai]`.
 
