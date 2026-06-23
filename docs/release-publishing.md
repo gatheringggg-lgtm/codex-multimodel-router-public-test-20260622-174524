@@ -20,7 +20,7 @@ Do not commit the platform zip packages to the main source tree. Upload them as 
 Release tag:
 
 ```text
-v0.1.3-rc1
+v0.1.4-rc1
 ```
 
 Upload these assets:
@@ -38,7 +38,7 @@ release-manifest.json
 - `SHA256SUMS.txt` matches the uploaded zip files.
 - Skill frontmatter validates.
 - Customer docs do not contain secrets, local machine names, LAN IPs, internal paths, or development gate labels.
-- Release notes state that Windows uses S4U user-level startup mode, final apply may interrupt the current Codex conversation, that rollback safety files and Desktop `一键回滚` are generated before apply, and that customers should use Desktop `一键回滚` first if Codex looks abnormal.
+- Release notes state that the configuration page uses responsive numbered card layout, Windows uses S4U user-level startup mode, final apply may interrupt the current Codex conversation, that rollback safety files and Desktop `一键回滚` are generated before apply, and that customers should use Desktop `一键回滚` first if Codex looks abnormal.
 
 ## Customer install command
 

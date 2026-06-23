@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "product": "codex-multimodel-router",
   "displayName": "Local Multi-Model Router for Codex Desktop",
-  "release": "v0.1.3-rc1",
+  "release": "v0.1.4-rc1",
   "nodeRuntimeVersion": "v24.17.0",
-  "releaseAssetBaseUrlTemplate": "https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.3-rc1/{assetName}",
-  "giteeReleaseAssetBaseUrlTemplate": "https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.3-rc1/{assetName}",
+  "releaseAssetBaseUrlTemplate": "https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.4-rc1/{assetName}",
+  "giteeReleaseAssetBaseUrlTemplate": "https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.4-rc1/{assetName}",
   "skillPath": "skills/codex-multimodel-router-installer",
   "checksumAsset": "SHA256SUMS.txt",
   "assets": [
@@ -13,21 +13,21 @@
       "platform": "win32",
       "arch": "x64",
       "assetName": "codex-multimodel-router-windows-x64-v24.17.0.zip",
-      "sha256": "a479ddcf5f66072fa66bffc450ee61d01a464f3a58393253a78622b8fe57bb23",
-      "sizeBytes": 34601685,
       "packageRootAfterExtract": "codex-multimodel-router-windows-x64",
       "runtimeRelativePath": "runtime/node.exe",
-      "runtimeCheck": "sha256_verified_archive_plus_pe_mz_header"
+      "runtimeCheck": "sha256_verified_archive_plus_pe_mz_header",
+      "sha256": "75c7dbd4b0d38d223932f9abb1fc765b7bf5de22c970a3e59437045254c110c0",
+      "sizeBytes": 34601844
     },
     {
       "platform": "darwin",
       "arch": "arm64",
       "assetName": "codex-multimodel-router-macos-arm64-v24.17.0.zip",
-      "sha256": "170b4b0dfb035e28a506c2bfa5a6581da7d3d53262de67d4196efb41e7c02106",
-      "sizeBytes": 38973429,
       "packageRootAfterExtract": "codex-multimodel-router-macos-arm64",
       "runtimeRelativePath": "runtime/node",
-      "runtimeCheck": "executed_node_--version"
+      "runtimeCheck": "executed_node_--version",
+      "sha256": "aa97895cd1456cb68a6115a54eb3ddcfcb96105cf69fe7e8fe8a2c53a133821e",
+      "sizeBytes": 38973588
     }
   ],
   "safety": {
@@ -55,9 +55,11 @@
     "lockedStepperFlow": true,
     "codexRestartButtonAfterHealthCheck": true,
     "codexRestartWaitsForProcessExitBeforeReopen": true,
-    "windowsS4UBackgroundTask": true
+    "windowsS4UBackgroundTask": true,
+    "configPageResponsiveNumberedCards": true,
+    "configPageChineseTitleNoVerticalWrap": true
   },
-  "updatedAt": "2026-06-23T09:32:29Z",
-  "version": "v0.1.3-rc1",
-  "fix": "v0.1.3-rc1: installer restart waits for Codex process exit, official-login defaults GPT passthrough to official Codex backend, custom-provider protects GPT passthrough, Gitee download retry guidance, and Windows Chinese path encoding hardening; no Codex Desktop binaries included"
+  "updatedAt": "2026-06-23T15:17:25Z",
+  "version": "v0.1.4-rc1",
+  "fix": "v0.1.4-rc1: adds responsive numbered configuration-page cards to prevent narrow vertical Chinese text on Windows, while retaining v0.1.3 installer hardening, official-login passthrough defaults, S4U startup, rollback-first safety, and no Codex Desktop binaries"
 }
