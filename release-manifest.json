@@ -13,16 +13,16 @@
       "platform": "win32",
       "arch": "x64",
       "assetName": "codex-multimodel-router-windows-x64-v24.17.0.zip",
-      "sha256": "6a97e1bbd907cfcf3adc526065c01bf8168f2806ea5e5deb9052a26fed524c6d",
-      "sizeBytes": 34587632,
+      "sha256": "e987099e8949ba20a70310b44588c93c471569f2b4fc28d68cfd35fe49abfb58",
+      "sizeBytes": 34589014,
       "packageRootAfterExtract": "codex-multimodel-router-windows-x64"
     },
     {
       "platform": "darwin",
       "arch": "arm64",
       "assetName": "codex-multimodel-router-macos-arm64-v24.17.0.zip",
-      "sha256": "b77d108acad18a7fdc6fbc6f0180adf26761ffc951beae302214966fdab8852e",
-      "sizeBytes": 38960633,
+      "sha256": "2fa01e36d855e0ca84323d223a5f824a99704cd98aeaaa5524558b7bccea86fa",
+      "sizeBytes": 38962133,
       "packageRootAfterExtract": "codex-multimodel-router-macos-arm64"
     }
   ],
@@ -37,9 +37,10 @@
     "desktopRollbackEntryBeforeApply": true,
     "finalApplyScriptsVerifyDesktopRollbackEntry": true,
     "localConfigPageForProviderSettings": true,
-    "setupTokenHiddenWhenBrowserAutoOpens": true
+    "setupTokenHiddenWhenBrowserAutoOpens": true,
+    "powershellInlineEvalAvoided": true
   },
-  "updatedAt": "2026-06-23T01:10:30Z",
+  "updatedAt": "2026-06-23T02:20:00Z",
   "version": "v0.1.0-prototype",
-  "fix": "adds local Chinese Base URL/API Key configuration page, hides setup token when browser auto-opens, auto-created router.env, custom-provider GPT passthrough validation, and desktop rollback gate"
+  "fix": "replaces PowerShell node -e inline helpers with packaged .mjs helpers, preserving local Chinese config page and rollback gates"
 }
