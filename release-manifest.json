@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "product": "codex-multimodel-router",
   "displayName": "Local Multi-Model Router for Codex Desktop",
-  "release": "v0.1.4-rc1",
+  "release": "v0.1.6-rc1",
   "nodeRuntimeVersion": "v24.17.0",
-  "releaseAssetBaseUrlTemplate": "https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.4-rc1/{assetName}",
-  "giteeReleaseAssetBaseUrlTemplate": "https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.4-rc1/{assetName}",
+  "releaseAssetBaseUrlTemplate": "https://github.com/gatheringggg-lgtm/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.6-rc1/{assetName}",
+  "giteeReleaseAssetBaseUrlTemplate": "https://gitee.com/leo391913/codex-multimodel-router-public-test-20260622-174524/releases/download/v0.1.6-rc1/{assetName}",
   "skillPath": "skills/codex-multimodel-router-installer",
   "checksumAsset": "SHA256SUMS.txt",
   "assets": [
@@ -16,8 +16,8 @@
       "packageRootAfterExtract": "codex-multimodel-router-windows-x64",
       "runtimeRelativePath": "runtime/node.exe",
       "runtimeCheck": "sha256_verified_archive_plus_pe_mz_header",
-      "sha256": "75c7dbd4b0d38d223932f9abb1fc765b7bf5de22c970a3e59437045254c110c0",
-      "sizeBytes": 34601844
+      "sha256": "9e836f0ac29a0e272b7d4285f326b531d795b77274226d1300a9e3d00a0129ec",
+      "sizeBytes": 34618401
     },
     {
       "platform": "darwin",
@@ -26,8 +26,8 @@
       "packageRootAfterExtract": "codex-multimodel-router-macos-arm64",
       "runtimeRelativePath": "runtime/node",
       "runtimeCheck": "executed_node_--version",
-      "sha256": "aa97895cd1456cb68a6115a54eb3ddcfcb96105cf69fe7e8fe8a2c53a133821e",
-      "sizeBytes": 38973588
+      "sha256": "1be284ce7bface6b8e64b61d86b205b7f858be0e847a6005780968497e6679e4",
+      "sizeBytes": 38990145
     }
   ],
   "safety": {
@@ -57,9 +57,13 @@
     "codexRestartWaitsForProcessExitBeforeReopen": true,
     "windowsS4UBackgroundTask": true,
     "configPageResponsiveNumberedCards": true,
-    "configPageChineseTitleNoVerticalWrap": true
+    "configPageChineseTitleNoVerticalWrap": true,
+    "officialGptCapabilityProfilePreserved": true,
+    "officialGptImageInputEnabled": true,
+    "thirdPartyModelsRemainTextOnlyConservative": true,
+    "codexAppStructuredToolsPreservedForOfficialSlots": true
   },
-  "updatedAt": "2026-06-23T15:17:25Z",
-  "version": "v0.1.4-rc1",
-  "fix": "v0.1.4-rc1: adds responsive numbered configuration-page cards to prevent narrow vertical Chinese text on Windows, while retaining v0.1.3 installer hardening, official-login passthrough defaults, S4U startup, rollback-first safety, and no Codex Desktop binaries"
+  "updatedAt": "2026-06-24T04:10:00Z",
+  "version": "v0.1.6-rc1",
+  "fix": "v0.1.6-rc1: preserves official GPT slot capability profiles (text+image, search/reasoning/tool metadata) while keeping third-party routes text-only; fixes image-send/model capability regressions from simplified catalog."
 }

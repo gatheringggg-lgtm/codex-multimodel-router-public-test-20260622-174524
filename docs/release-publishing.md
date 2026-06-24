@@ -20,7 +20,7 @@ Do not commit the platform zip packages to the main source tree. Upload them as 
 Release tag:
 
 ```text
-v0.1.4-rc1
+v0.1.6-rc1
 ```
 
 Upload these assets:
